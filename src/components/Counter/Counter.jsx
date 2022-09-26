@@ -19,8 +19,8 @@ class Counter extends React.Component {
     return this.state.good + this.state.neutral + this.state.bad;
   };
   countPositiveFeedbackPercentage = () => {
-    const { good, neutral, bad } = this.state;
-    const total = good + neutral + bad;
+    const { good } = this.state;
+    const total = this.countTotalFeedback();
     let positive;
     if (total) {
       positive = ((good / total) * 100).toFixed(0);
