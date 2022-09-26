@@ -15,16 +15,14 @@ class Counter extends React.Component {
     this.setState({ [options]: this.state[options] + 1 });
   };
 
-  countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    const total = good + neutral + bad;
-    return total;
+   countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
   };
   countPositiveFeedbackPercentage = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     let positive;
-    if (total !== 0) {
+    if (total) {
       positive = ((good / total) * 100).toFixed(0);
     } else {
       positive = 0;
